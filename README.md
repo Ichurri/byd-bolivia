@@ -24,6 +24,28 @@ El resultado de producción se genera en `dist/`. Para revisarlo localmente:
 npm run preview
 ```
 
+Con la configuración de GitHub Pages, la vista previa se sirve bajo
+`http://localhost:4173/byd-bolivia/`.
+
+## Despliegue en GitHub Pages
+
+El workflow `.github/workflows/deploy.yml` ejecuta las pruebas, compila la
+aplicación y publica `dist/` cuando se envían cambios a `main`.
+
+1. En GitHub, abre **Settings → Pages**.
+2. En **Build and deployment → Source**, selecciona **GitHub Actions**.
+3. Envía los cambios a la rama `main`.
+4. Revisa el progreso en la pestaña **Actions**.
+
+La URL esperada para el repositorio `byd-bolivia` es:
+
+```text
+https://TU_USUARIO.github.io/byd-bolivia/
+```
+
+Si cambia el nombre del repositorio, también debe actualizarse `base` en
+`vite.config.js`.
+
 ## Modelos incluidos
 
 - BYD Dolphin

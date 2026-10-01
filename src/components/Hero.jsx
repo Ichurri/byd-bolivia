@@ -1,4 +1,5 @@
 import { ArrowDown, Lightning } from '@phosphor-icons/react'
+import { assetUrl } from '../lib/assets'
 
 export default function Hero() {
   return (
@@ -14,7 +15,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-visual">
-        <img src="/vehicles/atto-8.webp" alt="BYD Atto 8 en un entorno futurista iluminado" />
+        <img src={assetUrl('vehicles/atto-8.webp')} alt="BYD Atto 8 en un entorno futurista iluminado" />
         <div className="hero-spec">
           <span>ATTO 8</span>
           <strong>3 filas</strong>

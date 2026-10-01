@@ -22,7 +22,7 @@ describe('vehicles', () => {
         rangeKm: expect.any(Number),
         lengthMm: expect.any(Number),
         powerHp: expect.any(Number),
-        image: expect.stringMatching(/^\/vehicles\//),
+        image: expect.stringContaining(`${import.meta.env.BASE_URL}vehicles/`),
         imageAlt: expect.stringContaining(vehicle.name),
         features: expect.any(Array),
       })
