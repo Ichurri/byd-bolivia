@@ -1,15 +1,19 @@
+import { useState } from 'react'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import VehicleCatalog from './components/VehicleCatalog'
+import { vehicles } from './data/vehicles'
+
 export default function App() {
+  const [selectedVehicleId, setSelectedVehicleId] = useState('dolphin-mini')
+
   return (
     <>
-      <header>
-        <nav aria-label="Principal">
-          <a href="#modelos">Ver modelos</a>
-        </nav>
-      </header>
+      <a className="skip-link" href="#contenido">Saltar al contenido</a>
+      <Header />
       <main id="contenido">
-        <section id="modelos">
-          <h1>BYD Bolivia</h1>
-        </section>
+        <Hero />
+        <VehicleCatalog vehicles={vehicles} selectedVehicleId={selectedVehicleId} onSelect={setSelectedVehicleId} />
       </main>
     </>
   )
