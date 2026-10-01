@@ -16,7 +16,7 @@ export default function VehicleCatalog({ vehicles, selectedVehicleId, onSelect }
         <h2 id="catalog-title">Encuentra el BYD que encaja contigo.</h2>
         <p>Siete maneras de moverte con más tecnología, eficiencia y libertad.</p>
       </div>
-      <div className="filter-row" aria-label="Filtrar modelos">
+      <div className="filter-row" role="group" aria-label="Filtrar modelos">
         {filters.map((item) => (
           <button
             key={item}

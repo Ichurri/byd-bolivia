@@ -1,13 +1,31 @@
+import { useEffect, useRef } from 'react'
 import { Check, X } from '@phosphor-icons/react'
 import { priceStatusLabels } from '../data/vehicles'
 
 export default function VehicleDialog({ vehicle, onClose, onSelect }) {
+  const closeButtonRef = useRef(null)
+  const previousFocusRef = useRef(null)
+
+  useEffect(() => {
+    if (!vehicle) return undefined
+    previousFocusRef.current = document.activeElement
+    closeButtonRef.current?.focus()
+    const closeOnEscape = (event) => {
+      if (event.key === 'Escape') onClose()
+    }
+    document.addEventListener('keydown', closeOnEscape)
+    return () => {
+      document.removeEventListener('keydown', closeOnEscape)
+      previousFocusRef.current?.focus()
+    }
+  }, [vehicle, onClose])
+
   if (!vehicle) return null
 
   return (
     <div className="dialog-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <div className="vehicle-dialog" role="dialog" aria-modal="true" aria-labelledby={`dialog-${vehicle.id}`}>
-        <button className="icon-button dialog-close" type="button" onClick={onClose} aria-label="Cerrar detalles">
+        <button ref={closeButtonRef} className="icon-button dialog-close" type="button" onClick={onClose} aria-label="Cerrar detalles">
           <X size={22} />
         </button>
         <div className="dialog-image"><img src={vehicle.image} alt="" /></div>

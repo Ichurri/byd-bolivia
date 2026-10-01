@@ -44,7 +44,7 @@ export default function ModelComparator({ vehicles }) {
           <div className="selection-count"><strong>{selectedIds.length}</strong><span>de 3 modelos</span></div>
         </div>
 
-        <div className="model-picker" aria-label="Seleccionar modelos para comparar">
+        <div className="model-picker" role="group" aria-label="Seleccionar modelos para comparar">
           {vehicles.map((vehicle) => {
             const checked = selectedIds.includes(vehicle.id)
             return (
@@ -64,7 +64,7 @@ export default function ModelComparator({ vehicles }) {
         <p className={`comparison-status ${message ? 'has-message' : ''}`} role="status">{message}</p>
 
         {selected.length >= 2 ? (
-          <div className="comparison-scroll" tabIndex="0" aria-label="Tabla comparativa desplazable">
+          <div className="comparison-scroll" role="region" tabIndex="0" aria-label="Tabla comparativa desplazable">
             <table className="comparison-table">
               <thead>
                 <tr>
