@@ -144,6 +144,31 @@ img { display: block; max-width: 100%; }
 .comparison-table tr:last-child th, .comparison-table tr:last-child td { border-bottom: 0; }
 .comparison-empty { padding: 42px; border: 1px dashed rgba(11,18,28,.22); border-radius: var(--radius-card); text-align: center; color: #657386; }
 
+.finance-section { position: relative; overflow: hidden; background: #090d13; }
+.finance-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 15% 25%, rgba(38,135,255,.15), transparent 28%), linear-gradient(120deg, transparent 60%, rgba(255,255,255,.025)); pointer-events: none; }
+.finance-layout { position: relative; display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(50px, 8vw, 120px); align-items: center; }
+.finance-intro h2 { max-width: 8.4ch; margin: 24px 0 0; font-size: clamp(3rem, 5vw, 5.8rem); line-height: .94; letter-spacing: -.07em; }
+.finance-intro > p { max-width: 46ch; margin: 24px 0 0; color: var(--muted); line-height: 1.7; }
+.finance-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 16px; background: rgba(38,135,255,.13); color: #79b5ff; border: 1px solid rgba(38,135,255,.25); }
+.finance-car { margin-top: 44px; display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 18px; padding-top: 24px; border-top: 1px solid var(--line); }
+.finance-car img { width: 150px; height: 90px; object-fit: cover; border-radius: 12px; background: var(--surface); }
+.finance-car div { display: flex; flex-direction: column; gap: 3px; }.finance-car span, .finance-car small { color: var(--muted); font-size: .68rem; }.finance-car strong { font-size: .98rem; }
+.calculator-panel { padding: clamp(24px, 4vw, 46px); border: 1px solid var(--line); border-radius: var(--radius-card); background: rgba(16,23,34,.88); box-shadow: 0 36px 100px rgba(0,0,0,.35); }
+.calculator-fields { display: grid; grid-template-columns: 1.25fr .8fr .95fr; gap: 14px; margin-top: 16px; }
+.field-block { display: flex; flex-direction: column; gap: 8px; }
+.field-block label { color: #cad5e2; font-size: .72rem; font-weight: 700; }
+.field-block input, .field-block select, .field-block textarea { width: 100%; min-height: 50px; padding: 0 15px; border: 1px solid var(--line); border-radius: 12px; background: #0a1018; color: var(--text); }
+.field-block textarea { min-height: 110px; padding-block: 13px; resize: vertical; }
+.field-block input::placeholder, .field-block textarea::placeholder { color: #7f8da0; }
+.field-block input[aria-invalid='true'], .field-block select[aria-invalid='true'] { border-color: var(--danger); }
+.field-error { color: #ff9298; font-size: .68rem; line-height: 1.4; }
+.payment-result { margin-top: 26px; padding: 26px; display: flex; justify-content: space-between; align-items: center; border-radius: 16px; color: #07101b; background: linear-gradient(135deg, #dcecff, #8fc2ff); }
+.payment-result div { display: flex; flex-direction: column; }.payment-result span { font-size: .72rem; font-weight: 700; }.payment-result strong { margin-top: 5px; font-size: clamp(2.1rem, 4vw, 3.8rem); line-height: 1; letter-spacing: -.06em; }.payment-result small { margin-top: 8px; color: #35485e; }
+.finance-summary { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; }
+.finance-summary span { padding: 16px 0; display: flex; flex-direction: column; gap: 6px; border-bottom: 1px solid var(--line); }.finance-summary small { color: var(--muted); }.finance-summary strong { font-size: .92rem; }
+.finance-disclaimer { display: flex; gap: 9px; align-items: flex-start; margin: 16px 0 0; color: #aab6c6; font-size: .68rem; line-height: 1.5; }.finance-disclaimer svg { flex: 0 0 auto; color: #79b5ff; }
+.finance-cta { width: 100%; margin-top: 22px; }
+
 @media (max-width: 900px) {
   .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 120px; }
   .hero h1 { max-width: 11ch; }
@@ -151,6 +176,7 @@ img { display: block; max-width: 100%; }
   .scroll-cue { display: none; }
   .vehicle-card, .vehicle-card:nth-child(3n), .vehicle-card:nth-child(3n + 1):not(:first-child) { grid-column: span 12; }
   .vehicle-dialog { grid-template-columns: 1fr; }.dialog-image { min-height: 320px; }
+  .finance-layout { grid-template-columns: 1fr; }.finance-intro h2 { max-width: 11ch; }
 }
 
 @media (max-width: 767px) {
@@ -162,6 +188,7 @@ img { display: block; max-width: 100%; }
   .vehicle-card-body { padding: 18px; }.dialog-backdrop { padding: 10px; }.vehicle-dialog { max-height: 94dvh; }.dialog-content { padding: 24px 20px 28px; }
   .dialog-stats { grid-template-columns: 1fr; gap: 0; }.dialog-footer { align-items: stretch; flex-direction: column; }.dialog-footer .button { width: 100%; }
   .comparison-header { grid-template-columns: 1fr; }.selection-count { display: none; }.comparison-table th, .comparison-table td { padding: 14px; }.comparison-table thead th:first-child { width: 118px; }
+  .calculator-fields { grid-template-columns: 1fr; }.finance-car { grid-template-columns: 110px 1fr; }.finance-car img { width: 110px; height: 74px; }.payment-result { padding: 20px; }.finance-summary { grid-template-columns: 1fr; gap: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {

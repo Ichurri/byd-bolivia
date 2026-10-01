@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import FinanceCalculator from './components/FinanceCalculator'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import ModelComparator from './components/ModelComparator'
@@ -16,6 +17,7 @@ export default function App() {
         <Hero />
         <VehicleCatalog vehicles={vehicles} selectedVehicleId={selectedVehicleId} onSelect={setSelectedVehicleId} />
         <ModelComparator vehicles={vehicles} />
+        <FinanceCalculator vehicles={vehicles} selectedVehicleId={selectedVehicleId} onVehicleChange={setSelectedVehicleId} />
       </main>
     </>
   )
