@@ -1,12 +1,14 @@
 import { useState } from 'react'
+import CommercialSections from './components/CommercialSections'
 import FinanceCalculator from './components/FinanceCalculator'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import LeadForms from './components/LeadForms'
 import ModelComparator from './components/ModelComparator'
 import VehicleCatalog from './components/VehicleCatalog'
 import { vehicles } from './data/vehicles'
-import { saveLead } from './lib/storage'
+import { clearDemoData, saveLead } from './lib/storage'
 
 export default function App() {
   const [selectedVehicleId, setSelectedVehicleId] = useState('dolphin-mini')
@@ -20,8 +22,10 @@ export default function App() {
         <VehicleCatalog vehicles={vehicles} selectedVehicleId={selectedVehicleId} onSelect={setSelectedVehicleId} />
         <ModelComparator vehicles={vehicles} />
         <FinanceCalculator vehicles={vehicles} selectedVehicleId={selectedVehicleId} onVehicleChange={setSelectedVehicleId} />
+        <CommercialSections />
         <LeadForms vehicles={vehicles} selectedVehicleId={selectedVehicleId} onVehicleChange={setSelectedVehicleId} saveLead={saveLead} />
       </main>
+      <Footer clearDemoData={clearDemoData} />
     </>
   )
 }
